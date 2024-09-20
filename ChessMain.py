@@ -53,9 +53,9 @@ def main():
 
                 if len(playerClicks) == 2: # after 2nd click
                     move = ChessEngine.Move(playerClicks[0], playerClicks[1], gs.board)
-                    print(move.getChessNotation())
+
                     for i in range(len(validMoves)):
-                        if move in validMoves[i]:
+                        if move == validMoves[i]:
                             gs.makeMove(validMoves[i])
                             moveMade = True
                             sqSelected = () # reset user clicks
@@ -96,9 +96,6 @@ def drawPieces(screen, board):
             piece = board[r][c]
             if piece != "--": # not empty square
                 screen.blit(IMAGES[piece], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
-
-
-
 
 if __name__ == "__main__":
     main()
